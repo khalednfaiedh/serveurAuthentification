@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: back-api
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    initialSize: 1
+    password: oracle
+    testOnBorrow: true
+    url: jdbc:oracle:thin:@192.168.26.134:1521:pi
+    username: system
+    validationQuery: "SELECT 1"
+  jpa:
+    properties:
+      hibernate:
+        globally_quoted_identifiers=true:
+    hibernate.ddl-auto:    update
+    show-sql:  true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  mail:
+    host: smtp.office365.com
+    port: 587
+    username: kad@wevioo.com
+    password: Wevioo@2024++
+    default-encoding: UTF-8
+    properties.mail.smtp.port: 587
+    properties.mail.transport.protocol: smtps
+    properties.mail.smtp.auth: true
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+    properties.mail.smtp.ssl.enable: false
+    properties.mail.smtp.timeout: 15000
+    properties.mail.smtp.connectiontimeout: 15000
+  jackson.default-property-inclusion: non-null
+
+
+
+server:
+  port: 8081
+
+
+otp-code-expiration-time: 3600
+reset-password-url: http://192.168.34.135:7001/pi-frontoffice/reset-password
+reset-password-url-back: http://192.168.34.135:7001/pi-backoffice/reset-password
+account-activation-url: http://192.168.34.135:7001/pi/activation
+upload-path: /data
+
+
+springdoc.swagger-ui.oauth.use-pkce-with-authorization-code-grant: true
+springdoc.swagger-ui.oauth.client-id: yourSPAClientId
+springdoc.oAuthFlow.authorizationUrl: http://localhost:9999
+springdoc.oAuthFlow.tokenUrl: http://localhost:9999/oauth/token
